@@ -1,19 +1,20 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :token_authenticatable
+  attr_accessible :email, :password, :password_confirmation
   validates_presence_of :email
   mount_uploader :image, ImageUploader
   has_many :authorizations
 
   def self.new_with_session(params,session)
-  	if session["devise.user_attributes"]
-  		new(session["devise.user_attributes"],without_protection: true) do |user|
-  			user.attributes = params
-  			user.valid?
-  		end
-  	else
-  		super
-  	end
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"],without_protection: true) do |user|
+        user.attributes = params
+        user.valid?
+      end
+    else
+      super
+    end
   end
 
   def self.from_omniauth(auth, current_user)

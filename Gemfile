@@ -1,62 +1,41 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.2'
 
-# Bundle edge Rails instead:
-#gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 
-gem 'mysql2'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'
 
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+gem 'intercom-rails'
+gem 'taps'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
-#gem 'perform_later'
-#gem 'ransack'
-#gem 'resque-history'
-#gem 'activeadmin'
-#gem 'airbrake'
-#gem 'cache_digests'
-#gem 'capistrano'
-#gem 'chronic'
-#gem 'client_side_validations-simple_form'
-#gem 'daemons'
-#gem 'dalli'
-#gem 'devise-async'
-#gem 'devise-encryptable'
-#gem 'execjs'
-#gem 'friendly_id'
-gem 'jquery-turbolinks'
-#gem 'libv8', '~> 3.11.8'
-#gem 'newrelic_rpm'
-#gem 'rabl'
-#gem 'remotipart', '~> 1.0'
-#gem 'resque', :require => 'resque/server'
-#gem 'resque-cleaner'
-#gem 'resque-scheduler', :require => 'resque_scheduler'
-#gem 'resque-sliders'
-#gem 'resque_mailer'
-#gem 'roadie'
-#gem 'rvm-capistrano'
-#gem 'sinatra', require: false
-#gem 'slim'
-#gem 'strong_parameters'
-#gem 'thinking-sphinx'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-gem 'uuidtools'
-#gem 'whenever', :require => false
-#gem 'will_paginate'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
+
 gem 'devise'
-gem 'zurb-foundation'
+gem 'bootstrap-sass-rails'
 gem 'carrierwave'
 gem 'twitter'
-gem 'jquery-rails'
 gem 'json'
+gem 'airbrake'
 gem 'koala'
 gem 'linkedin'
 gem 'omniauth'
@@ -68,9 +47,10 @@ gem 'omniauth-twitter'
 gem 'rmagick'
 gem 'simple_form'
 gem 'pg'
-  gem 'thin'
+gem 'thin'
 
 group :development, :test do
+  gem 'byebug'
   #gem 'annotate'
   #gem 'better_errors'
   #gem 'binding_of_caller'
@@ -103,33 +83,35 @@ group :development, :test do
   #gem 'timecop'
 end
 
+group :development, :test do
+  gem 'factory_girl_rails' # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
+  gem 'guard' # https://github.com/guard/guard
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
+end
 
-# group :development, :test do
-  #gem 'factory_girl_rails' # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
-  #gem 'guard' # https://github.com/guard/guard
-  #gem 'guard-cucumber'
-  #gem 'guard-rspec'
-# end
+
+group :test do
+  gem 'cucumber-rails', :require => false # https://github.com/cucumber/cucumber-rails
+  gem 'database_cleaner' # https://github.com/bmabey/database_cleaner
+  gem 'shoulda-matchers' # https://github.com/thoughtbot/shoulda-matchers
+  gem 'launchy'
+end
 
 
-# group :test do
-  #gem 'cucumber-rails', :require => false # https://github.com/cucumber/cucumber-rails
-  #gem 'database_cleaner' # https://github.com/bmabey/database_cleaner
-  #gem 'shoulda-matchers' # https://github.com/thoughtbot/shoulda-matchers
-  #gem 'launchy'
-# end
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
 
-# To use ActiveModel has_secure_password
-#gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-#gem 'jbuilder'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
-#gem 'unicorn'
+# gem 'unicorn'
 
-# Deploy with Capistrano
-#gem 'capistrano'
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
 
-# To use debugger
-#gem 'debugger'
+# Use debugger
+# gem 'debugger', group: [:development, :test]

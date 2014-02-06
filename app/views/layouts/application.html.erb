@@ -1,70 +1,65 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html>
 <head>
- <meta charset="utf-8" />
-
- <!-- Uncomment to make IE8 render like IE7 -->
- <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
-
- <!-- Set the viewport width to device width for mobile -->
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
- <title><%= content_for?(:title) ? yield(:title) : "Social Login" %></title>
-
- <%= stylesheet_link_tag    "application" %>
- <%= javascript_include_tag "vendor/custom.modernizr" %>
- <%= csrf_meta_tags %>
+  <title>SociaLoginRails</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 </head>
-
 <body>
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><%= link_to "Social Login", root_path %></a></h1>
-      </li>
-    </ul>
-    <section class="top-bar-section">
-      <ul class="right">
-        <li class="divider"></li>
-        <% if user_signed_in? %>
-        <li><%= link_to current_user.name, current_user %></li>
-        <li><%= link_to "Logout", destroy_user_session_path %></li>
-        <% else %>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
-        <% end %>
-        <li class="divider"></li>
-        <li class="divider"></li>
-         <li><%= link_to "Fork on github", "https://github.com/mohitjain/social-login-in-rails", :style => "color:red" %></li>
-        <li><%= link_to "Read More details", "http://www.codebeerstartups.com/2013/10/social-login-integration-with-all-the-popular-social-networks-in-ruby-on-rails/", :style => "color:green" %></li>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="../" class="navbar-brand">Social Login</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">DropDown <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="themes">
+              <li><a tabindex="-1" href="/">Default</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#/">Item 1</a></li>
+              <li><a tabindex="-1" href="#/">Item 2</a></li>
+              <li><a tabindex="-1" href="#/">Item 3</a></li>
+              <li><a tabindex="-1" href="#/">Item 4</a></li>
+              <li><a tabindex="-1" href="#/">Item 5</a></li>
+              <li><a tabindex="-1" href="#/">Item 6</a></li>
 
-      </ul>
-    </div>
-  </nav>
-  <div class="row">
-   <% if flash[:notice] %>
-   <div data-alert="" class="alert-box success">
-    <%= flash[:notice] %>
-    <a href="" class="close">×</a>
-    </div>
-   <% end %>
-  <% if flash[:error] %>
-  <div class="notice"><%= flash[:error] %>
-    <a href="" class="close">×</a>
-  </div>
-  <% end %>
-  <% if flash[:alert] %>
-  <div data-alert="" class="alert-box alert">
-    <%= flash[:alert] %>
-    <a href="" class="close">×</a>
-  </div>
-  <% end %>
+            </ul>
+          </li>
+          <li>
+            <a href="">Help</a>
+          </li>
+        </ul>
 
-  <div class="large-12 columns"><%= yield %></div>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <li><%= link_to current_user.name, current_user %></li>
+          <li><%= link_to "Logout", destroy_user_session_path %></li>
+          <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+   <div class="page-header" id="banner">
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>
 </div>
-<%= javascript_include_tag "application" %>
+
+
 </body>
 </html>

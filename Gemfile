@@ -1,19 +1,22 @@
+# 2015-07-23 RICHARD:
+# Various changes to prior version, and you might still need to run these to get it sorted out.
+# bundle , bundle,  bundle update , gem update, bundle update, bundle
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '~> 4.2.3'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails' #, '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier' # , '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails' # , '~> 4.0.0'
 gem 'intercom-rails'
 gem 'taps'
 gem 'activeadmin', github: 'gregbell/active_admin'
@@ -28,7 +31,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder' # , '~> 1.2'
 
 gem 'devise'
 gem 'bootstrap-sass-rails'
@@ -50,10 +53,12 @@ gem 'simple_form'
 gem 'pg'
 gem 'thin'
 
+gem 'eventmachine' # , '>=1.07'
+
 group :development, :test do
   gem 'byebug'
   #gem 'annotate'
-  #gem 'better_errors'
+  gem 'better_errors'
   #gem 'binding_of_caller'
   #gem 'brakeman', :require => false
   #gem 'bullet'

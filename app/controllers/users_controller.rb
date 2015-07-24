@@ -11,10 +11,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def index
+    @users = User.all
+  end
 
   # PATCH/PUT /users/1
   def update
-    if @user.update_attributes(params[:user])
+    # 2015-07-23 RICHARD: Updated to use strong parameters
+    if @user.update_attributes(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else
       render action: 'edit'
@@ -32,4 +36,8 @@ class UsersController < ApplicationController
        redirect_to root_path unless @user == current_user
     end
 
+    # 2015-07-23 RICHARD: Added to implement strong parameters
+    def user_params
+      params.require(:user).permit(:name, :user, :about)
+    end
   end

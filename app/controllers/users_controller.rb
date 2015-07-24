@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def index
+    @users = User.all
+  end
 
   # PATCH/PUT /users/1
   def update
@@ -35,6 +38,6 @@ class UsersController < ApplicationController
 
     # 2015-07-23 RICHARD: Added to implement strong parameters
     def user_params
-      params.require(:user).permit(:name, :user)
+      params.require(:user).permit(:name, :user, :about)
     end
   end

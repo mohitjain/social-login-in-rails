@@ -1,3 +1,6 @@
+# 2015-07-23 RICHARD:
+# THIS IS A SAMPLE FOR social_keys.yml which is git-ignored as it should be, because it will have your keys in it.
+# REMEMBER TO COPY THIS FILE TO social_keys.yml AND CHANGE THE KEYS IN THERE TO MATCH YOURS.
 development:
   facebook_key: "YOUR_KEY"
   facebook_secret: "YOUR_SECRET"

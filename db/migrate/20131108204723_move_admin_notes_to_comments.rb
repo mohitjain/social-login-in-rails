@@ -10,7 +10,8 @@ class MoveAdminNotesToComments < ActiveRecord::Migration
 
     # Update all the existing comments to the default namespace
     say "Updating any existing comments to the #{ActiveAdmin.application.default_namespace} namespace."
-    comments_table_name = ActiveRecord::Migrator.proper_table_name("active_admin_comments")
+    # 2015-07-23 RICHARD:  COMMENTED PART OF NEXT LINE NOT NEEDED AND NO LONGER RUNS IN RAILS (4.22)
+    comments_table_name = "active_admin_comments"   #ActiveRecord::Migrator.proper_table_name("active_admin_comments")
     execute "UPDATE #{comments_table_name} SET namespace='#{ActiveAdmin.application.default_namespace}'"
   end
 

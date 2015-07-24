@@ -1,4 +1,7 @@
-# SQLite version 3.x
+# 2015-07-23 RICHARD:
+# THIS IS A SAMPLE FOR database.yml which is git-ignored.
+# REMEMBER TO COPY THIS FILE TO database.yml - you won't have to change it.
+#
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile

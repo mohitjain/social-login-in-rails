@@ -5,7 +5,7 @@ Basic application with all the popular Social login System.
 
 [Live Demo for rails 3.2.15 and Foundation Framework](http://social-login-in-rails.herokuapp.com/) (Code lies on tag rails-3.2.15-foundation)
 
-For rails 4.0.2 and Twitter bootstrap - Pull the code from master branch
+For rails 4.2.3 and Twitter bootstrap - Pull the code from master branch
 
 ## Gems Used
 

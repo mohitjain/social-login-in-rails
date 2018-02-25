@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title SociaLoginRails
+    = stylesheet_link_tag    "application", media: "all", 'data-turbolinks-track': 'reload'
+    = javascript_include_tag "application", 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+  body
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand href="../"  Social Login
+          button.navbar-toggle data-target="#navbar-main" data-toggle="collapse" type="button"
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar-main.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li.dropdown
+              a#themes.dropdown-toggle data-toggle="dropdown" href="#"
+                | DropDown
+                span.caret
+              ul.dropdown-menu aria-labelledby="themes"
+                li
+                  a href="/" tabindex="-1"  Default
+                li.divider
+                li
+                  a href="#/" tabindex="-1"  Item 1
+                li
+                  a href="#/" tabindex="-1"  Item 2
+                li
+                  a href="#/" tabindex="-1"  Item 3
+                li
+                  a href="#/" tabindex="-1"  Item 4
+                li
+                  a href="#/" tabindex="-1"  Item 5
+                li
+                  a href="#/" tabindex="-1"  Item 6
+            li
+              a href=""  Help
+          ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              li= link_to current_user.name, current_user
+              li= link_to "Logout", destroy_user_session_path
+            - else
+              li= link_to "Sign in", new_user_session_path
+    .container
+      #banner.page-header
+        .row
+          = yield

@@ -1,11 +1,10 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable,
       :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   validates_presence_of :email
-  mount_uploader :image, ImageUploader
   has_many :authorizations
 
   def self.new_with_session(params,session)
@@ -28,8 +27,8 @@ class User < ActiveRecord::Base
        user.password = Devise.friendly_token[0,10]
        user.name = auth.info.name
        user.email = auth.info.email
-       if auth.provider == "twitter" 
-         user.save(:validate => false) 
+       if auth.provider == "twitter"
+         user.save(:validate => false)
        else
          user.save
        end

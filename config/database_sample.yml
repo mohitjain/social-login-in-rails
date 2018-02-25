@@ -1,29 +1,24 @@
-# 2015-07-23 RICHARD:
-# THIS IS A SAMPLE FOR database.yml which is git-ignored.
-# REMEMBER TO COPY THIS FILE TO database.yml - you won't have to change it.
-#
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
-default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
-
 development:
-  <<: *default
-  database: db/social_login_development.sqlite3
+  adapter: postgresql
+  database: social_login_rails_development
+  host: localhost
+  username: mohitjain
+  password:
+
+test:
+  adapter: postgresql
+  database: social_login_rails_test
+  host: localhost
+  username: mohitjain
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: db/social_login_test.sqlite3
-
 production:
-  <<: *default
-  database: db/social_login_production.sqlite3
-
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['DB_NAME'] %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>

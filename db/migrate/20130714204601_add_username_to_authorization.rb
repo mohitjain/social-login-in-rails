@@ -1,4 +1,4 @@
-class AddUsernameToAuthorization < ActiveRecord::Migration
+class AddUsernameToAuthorization < ActiveRecord::Migration[5.1]
   def change
     add_column :authorizations, :username, :string
   end

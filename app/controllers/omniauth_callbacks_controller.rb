@@ -1,7 +1,4 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
-	skip_before_action :authenticate_user!
-
 	def all
 		user = User.from_omniauth(env["omniauth.auth"], current_user)
 		if user.persisted?

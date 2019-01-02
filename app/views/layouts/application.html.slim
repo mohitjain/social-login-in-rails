@@ -7,7 +7,7 @@ html
     = javascript_include_tag "application", 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
   body
-    .navbar.navbar-default.navbar-fixed-top
+    .navbar.navbar-default
       .container
         .navbar-header
           a.navbar-brand href="../"  Social Login
@@ -46,6 +46,6 @@ html
             - else
               li= link_to "Sign in", new_user_session_path
     .container
-      #banner.page-header
+      #banner
         .row
           = yield
